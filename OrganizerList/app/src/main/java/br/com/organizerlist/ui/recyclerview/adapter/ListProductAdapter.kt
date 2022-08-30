@@ -11,13 +11,16 @@ import br.com.organizerlist.model.Product
 
 class ListProductAdapter (
     private val context: Context,
-    private val products: List<Product>): RecyclerView.Adapter<ListProductAdapter.ViewHolder>(){
+    products: List<Product>
+    ): RecyclerView.Adapter<ListProductAdapter.ViewHolder>(){
+
+    private val products = products.toMutableList()
 
     class ViewHolder(view: View) :RecyclerView.ViewHolder(view){
         fun binds(product: Product) {
-            val name = itemView.findViewById<TextView>(R.id.name)
+            val name = itemView.findViewById<TextView>(R.id.activity_product_name)
             name.text = product.name
-            val qty = itemView.findViewById<TextView>(R.id.qty)
+            val qty = itemView.findViewById<TextView>(R.id.activity_product_qty)
             qty.text = product.qty.toString()
         }
     }
@@ -34,4 +37,9 @@ class ListProductAdapter (
     }
 
     override fun getItemCount(): Int = products.size;
+    fun update(products: List<Product>) {
+        this.products.clear()
+        this.products.addAll(products)
+        notifyDataSetChanged()
+    }
 }

@@ -7,11 +7,10 @@
     tools:context=".model.Product">
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/activity_product_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
-        android:text="Teste"
         app:layout_constraintEnd_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -20,15 +19,14 @@
         />
 
     <TextView
-        android:id="@+id/qty"
+        android:id="@+id/activity_product_qty"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="QTY 2"
         android:layout_margin="16dp"
         tools:layout_editor_absoluteX="16dp"
-        app:layout_constraintStart_toStartOf="@id/name"
+        app:layout_constraintStart_toStartOf="@id/activity_product_name"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/name"
+        app:layout_constraintTop_toTopOf="@id/activity_product_name"
         />
 
 </android.support.constraint.ConstraintLayout>
