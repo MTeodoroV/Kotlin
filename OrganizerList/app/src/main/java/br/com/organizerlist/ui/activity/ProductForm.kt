@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import br.com.organizerlist.R
+import br.com.organizerlist.dao.ProductDao
 import br.com.organizerlist.model.Product
 import java.math.BigInteger
 
@@ -32,7 +33,9 @@ class ProductForm : AppCompatActivity() {
                 qty = qty
             )
 
-            Log.i("FormularioProduto", "onCreate: $productNew")
+            val dao = ProductDao()
+                dao.addProduct(productNew)
+            finish()
         }
     }
 }

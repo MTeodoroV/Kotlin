@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".model.Product">
 
     <TextView
@@ -16,6 +16,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        tools:layout_editor_absoluteX="16dp"
         />
 
     <TextView
@@ -24,6 +25,7 @@
         android:layout_height="wrap_content"
         android:text="QTY 2"
         android:layout_margin="16dp"
+        tools:layout_editor_absoluteX="16dp"
         app:layout_constraintStart_toStartOf="@id/name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="@id/name"
