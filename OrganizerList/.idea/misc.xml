@@ -3,8 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/mateu/Documents/estudo/Kotlin/OrganizerList/app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="..\:/Users/mateu/Documents/estudo/Kotlin/OrganizerList/app/src/main/res/layout/activity_product.xml" value="0.25" />
+        <entry key="..\:/Users/mateu/Documents/estudo/Kotlin/OrganizerList/app/src/main/res/layout/activity_main.xml" value="0.2" />
+        <entry key="..\:/Users/mateu/Documents/estudo/Kotlin/OrganizerList/app/src/main/res/layout/activity_product.xml" value="0.20481927710843373" />
+        <entry key="..\:/Users/mateu/Documents/estudo/Kotlin/OrganizerList/app/src/main/res/layout/activity_product_form.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
