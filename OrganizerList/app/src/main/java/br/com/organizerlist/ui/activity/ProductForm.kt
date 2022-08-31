@@ -16,6 +16,7 @@ class ProductForm : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        title = "Adicionar item"
         setContentView(R.layout.activity_product_form)
         configAddProduct()
     }

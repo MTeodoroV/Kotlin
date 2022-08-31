@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import br.com.organizerlist.R
 import br.com.organizerlist.model.Product
+import java.text.NumberFormat
 
 class ListProductAdapter (
     private val context: Context,
@@ -21,7 +22,9 @@ class ListProductAdapter (
             val name = itemView.findViewById<TextView>(R.id.activity_product_name)
             name.text = product.name
             val qty = itemView.findViewById<TextView>(R.id.activity_product_qty)
-            qty.text = product.qty.toString()
+            //val formater:NumberFormat = NumberFormat.getCurrencyInstance(Locale("pt", "br"))
+            //val coinType: String = formater.formate(product.qty)
+            qty.text = "Quantidade: " + product.qty.toString()
         }
     }
 

@@ -16,6 +16,7 @@ class ListProductsActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        title = "Lista de Compras"
         setContentView(R.layout.activity_list_products)
         configRecyclerView()
     }
