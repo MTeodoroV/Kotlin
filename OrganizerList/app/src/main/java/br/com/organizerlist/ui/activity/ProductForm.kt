@@ -31,12 +31,18 @@ class ProductForm : AppCompatActivity() {
     }
 
     private fun createProduct(): Product {
-        val fieldName = findViewById<EditText>(R.id.inputProductName)
-        val name = fieldName.text.toString()
+        val getFieldName = findViewById<EditText>(R.id.inputProductName)
+        val fieldName = getFieldName.text.toString()
+        val name = if (fieldName.isBlank()) {
+            "Sem nome :) Nice!"
+        } else {
+            fieldName
+        }
+
         val getFieldQty = findViewById<EditText>(R.id.inputProductQty)
         val fieldQty = getFieldQty.text.toString()
         val qty = if (fieldQty.isBlank()) {
-            BigInteger.ZERO
+            BigInteger.ONE
         } else {
             BigInteger(fieldQty)
         }
