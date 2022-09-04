@@ -7,4 +7,9 @@
         <item name="colorAccent">#72C0E8</item>
         <!-- Customize your theme here. -->
     </style>
+
+    <style name="Theme.Orgs.NoActionBar" parent="Theme.OrganizerList">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
 </resources>

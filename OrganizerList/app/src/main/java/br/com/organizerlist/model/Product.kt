@@ -1,11 +1,11 @@
 package br.com.organizerlist.model
 
-import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
-import br.com.organizerlist.R
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 import java.math.BigInteger
 
+@Parcelize
 data class Product(
     val name: String,
     val qty: BigInteger
-)
+) : Parcelable

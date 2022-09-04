@@ -8,21 +8,25 @@ import br.com.organizerlist.R
 import br.com.organizerlist.dao.ProductDao
 import br.com.organizerlist.model.Product
 import java.math.BigInteger
+import br.com.organizerlist.databinding.ActivityProductFormBinding
 
 class ProductForm : AppCompatActivity() {
 
     private val dao = ProductDao()
 
+    private val binding by lazy {
+        ActivityProductFormBinding.inflate(layoutInflater)
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         title = "Adicionar item"
-        setContentView(R.layout.activity_product_form)
+        setContentView(binding.root)
         configAddProduct()
     }
 
     private fun configAddProduct() {
-        val ButtonAdd = findViewById<Button>(R.id.addProduct)
+        val ButtonAdd = binding.addProduct
         ButtonAdd.setOnClickListener {
             val productNew = createProduct()
             dao.addProduct(productNew)
@@ -31,7 +35,7 @@ class ProductForm : AppCompatActivity() {
     }
 
     private fun createProduct(): Product {
-        val getFieldName = findViewById<EditText>(R.id.inputProductName)
+        val getFieldName = binding.inputProductName
         val fieldName = getFieldName.text.toString()
         val name = if (fieldName.isBlank()) {
             "Sem nome :) Nice!"
@@ -39,7 +43,7 @@ class ProductForm : AppCompatActivity() {
             fieldName
         }
 
-        val getFieldQty = findViewById<EditText>(R.id.inputProductQty)
+        val getFieldQty = binding.inputProductQty
         val fieldQty = getFieldQty.text.toString()
         val qty = if (fieldQty.isBlank()) {
             BigInteger.ONE
