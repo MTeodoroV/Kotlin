@@ -1,14 +1,14 @@
 package br.com.organizerlist.ui.activity
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.widget.Button
-import android.widget.EditText
-import br.com.organizerlist.R
+import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
 import br.com.organizerlist.dao.ProductDao
+import br.com.organizerlist.database.AppDatabase
+import br.com.organizerlist.databinding.ActivityProductFormBinding
 import br.com.organizerlist.model.Product
 import java.math.BigInteger
-import br.com.organizerlist.databinding.ActivityProductFormBinding
+import java.math.BigDecimal
 
 class ProductForm : AppCompatActivity() {
 
@@ -27,9 +27,13 @@ class ProductForm : AppCompatActivity() {
 
     private fun configAddProduct() {
         val ButtonAdd = binding.addProduct
+        val db = AppDatabase.instancia(this)
+        val productDao = db.productDao()
         ButtonAdd.setOnClickListener {
             val productNew = createProduct()
-            dao.addProduct(productNew)
+            productDao.insert(
+                productNew
+            )
             finish()
         }
     }
@@ -46,9 +50,9 @@ class ProductForm : AppCompatActivity() {
         val getFieldQty = binding.inputProductQty
         val fieldQty = getFieldQty.text.toString()
         val qty = if (fieldQty.isBlank()) {
-            BigInteger.ONE
+            BigDecimal.ONE
         } else {
-            BigInteger(fieldQty)
+            BigDecimal(fieldQty)
         }
 
         return Product(

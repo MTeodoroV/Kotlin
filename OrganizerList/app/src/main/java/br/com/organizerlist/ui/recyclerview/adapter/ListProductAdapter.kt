@@ -1,10 +1,10 @@
 package br.com.organizerlist.ui.recyclerview.adapter
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.RecyclerView
 import br.com.organizerlist.databinding.ActivityProductBinding
 import br.com.organizerlist.model.Product
 

@@ -38,15 +38,19 @@ android {
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    def appcompat_version = "1.5.0"
     def room_version = "2.4.1"
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
 
     implementation "org.jetbrains.kotlin:kotlin-stdlib:1.7.10"
-    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation "androidx.appcompat:appcompat:$appcompat_version"
     implementation 'com.android.support.constraint:constraint-layout:2.0.4'
-    implementation 'com.android.support:recyclerview-v7:28.0.0'
+    implementation "androidx.recyclerview:recyclerview:1.2.1"
+    implementation "androidx.cardview:cardview:1.0.0"
     implementation 'com.android.support:design:28.0.0'
+    implementation 'com.google.android.material:material:1.0.0-rc01'
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'

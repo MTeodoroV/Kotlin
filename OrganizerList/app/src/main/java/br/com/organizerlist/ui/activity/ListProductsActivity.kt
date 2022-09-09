@@ -2,14 +2,14 @@ package br.com.organizerlist.ui.activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.support.design.widget.FloatingActionButton
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.RecyclerView
-import android.util.Log
-import br.com.organizerlist.R
+import androidx.appcompat.app.AppCompatActivity
+import androidx.room.Room
 import br.com.organizerlist.dao.ProductDao
-import br.com.organizerlist.ui.recyclerview.adapter.ListProductAdapter
+import br.com.organizerlist.database.AppDatabase
 import br.com.organizerlist.databinding.ActivityListProductsBinding
+import br.com.organizerlist.model.Product
+import br.com.organizerlist.ui.recyclerview.adapter.ListProductAdapter
+import java.math.BigInteger
 
 
 class ListProductsActivity : AppCompatActivity() {
@@ -30,7 +30,9 @@ class ListProductsActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
-        adapter.update(dao.findAll())
+        val db = AppDatabase.instancia(this)
+        val productDao = db.productDao()
+        adapter.update(productDao.listAll())
     }
 
     private fun configFab() {

@@ -1,9 +1,7 @@
 package br.com.organizerlist.ui.activity
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import br.com.organizerlist.R
+import androidx.appcompat.app.AppCompatActivity
 import br.com.organizerlist.databinding.ActivityProductDetailsBinding
 import br.com.organizerlist.extensions.turnString
 import br.com.organizerlist.model.Product
@@ -28,7 +26,7 @@ class ProductDetailsActivity : AppCompatActivity() {
     private fun loadFields(productLoaded: Product) {
         with(binding) {
             activityDetailsProductName.text = productLoaded.name
-            activityDetailsProductQty.text = productLoaded.qty.turnString()
+            activityDetailsProductQty.text = productLoaded.qty?.turnString()
         }
     }
 }
