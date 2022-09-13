@@ -2,20 +2,22 @@ package br.com.organizerlist.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.room.Room
-import br.com.organizerlist.dao.ProductDao
 import br.com.organizerlist.database.AppDatabase
+import br.com.organizerlist.database.dao.ProductDao
 import br.com.organizerlist.databinding.ActivityProductFormBinding
 import br.com.organizerlist.model.Product
-import java.math.BigInteger
 import java.math.BigDecimal
 
 class ProductForm : AppCompatActivity() {
 
-    private val dao = ProductDao()
-
     private val binding by lazy {
         ActivityProductFormBinding.inflate(layoutInflater)
+    }
+
+    private var productId = 0L
+    private val productDao:ProductDao by lazy {
+        val db = AppDatabase.instancia(this)
+        db.productDao()
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,6 +25,24 @@ class ProductForm : AppCompatActivity() {
         title = "Adicionar item"
         setContentView(binding.root)
         configAddProduct()
+        tryLoadProduct()
+    }
+
+    private fun tryLoadProduct() {
+        productId = intent.getLongExtra(KEY_PRODUCT_ID, 0L)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        productDao.getId(productId)?.let {
+            fillFieldsProduct(it)
+        }
+    }
+
+    private fun fillFieldsProduct(product: Product) {
+        title = "Alterar produto"
+        binding.inputProductName.setText(product.name)
+        binding.inputProductQty.setText(product.qty.toPlainString())
     }
 
     private fun configAddProduct() {
@@ -31,9 +51,7 @@ class ProductForm : AppCompatActivity() {
         val productDao = db.productDao()
         ButtonAdd.setOnClickListener {
             val productNew = createProduct()
-            productDao.insert(
-                productNew
-            )
+            productDao.insert(productNew)
             finish()
         }
     }
@@ -56,6 +74,7 @@ class ProductForm : AppCompatActivity() {
         }
 
         return Product(
+            id = productId,
             name = name,
             qty = qty
         )

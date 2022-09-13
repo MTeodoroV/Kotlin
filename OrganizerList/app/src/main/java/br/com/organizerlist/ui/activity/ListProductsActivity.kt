@@ -3,19 +3,14 @@ package br.com.organizerlist.ui.activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.room.Room
-import br.com.organizerlist.dao.ProductDao
 import br.com.organizerlist.database.AppDatabase
 import br.com.organizerlist.databinding.ActivityListProductsBinding
-import br.com.organizerlist.model.Product
 import br.com.organizerlist.ui.recyclerview.adapter.ListProductAdapter
-import java.math.BigInteger
 
 
 class ListProductsActivity : AppCompatActivity() {
 
-    private val dao = ProductDao()
-    private val adapter = ListProductAdapter(context = this, products = dao.findAll())
+    private val adapter = ListProductAdapter(context = this)
     private val binding by lazy {
         ActivityListProductsBinding.inflate(layoutInflater)
     }
@@ -55,7 +50,7 @@ class ListProductsActivity : AppCompatActivity() {
                 this,
                 ProductDetailsActivity::class.java
             ).apply {
-                putExtra(KEY_PRODUCT, it)
+                putExtra(KEY_PRODUCT_ID, it.id)
             }
             startActivity(intent)
         }

@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fillViewport="true">
 
-    <android.support.constraint.ConstraintLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         tools:context=".ui.activity.ProductDetailsActivity">
@@ -38,5 +38,5 @@
             app:layout_constraintTop_toBottomOf="@id/activity_details_product_name"
             tools:text="@tools:sample/lorem[1]" />
 
-    </android.support.constraint.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

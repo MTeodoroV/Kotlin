@@ -10,7 +10,7 @@ import br.com.organizerlist.model.Product
 
 class ListProductAdapter (
     private val context: Context,
-    products: List<Product>,
+    products: List<Product> = emptyList(),
     var clickProduct: (product: Product) -> Unit = {}
     ): RecyclerView.Adapter<ListProductAdapter.ViewHolder>(){
 

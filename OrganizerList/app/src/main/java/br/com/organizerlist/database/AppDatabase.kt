@@ -9,7 +9,7 @@ import br.com.organizerlist.database.converter.Converters
 import br.com.organizerlist.database.dao.ProductDao
 import br.com.organizerlist.model.Product
 
-@Database(entities = [Product::class], version = 1)
+@Database(entities = [Product::class], version = 1, exportSchema = false)
 @TypeConverters(Converters::class)
 abstract class AppDatabase: RoomDatabase() {
     abstract fun productDao(): ProductDao
